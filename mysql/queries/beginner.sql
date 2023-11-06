@@ -38,3 +38,46 @@ SELECT DISTINCT CITY
 FROM STATION
 WHERE
     NOT FIND_IN_SET(LEFT(CITY, 1), "a,e,i,o,u")
+
+# Not a vowel in the first or last letter
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE
+    NOT FIND_IN_SET(RIGHT(CITY, 1), "a,e,i,o,u")
+    OR NOT FIND_IN_SET(LEFT(CITY, 1), "a,e,i,o,u");
+
+# Not a vowel in the first and last letter
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE
+    NOT FIND_IN_SET(RIGHT(CITY, 1), "a,e,i,o,u")
+    AND NOT FIND_IN_SET(LEFT(CITY, 1), "a,e,i,o,u");
+
+# New TABLE
+
+CREATE TABLE
+    `students` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(95) NOT NULL,
+        `marks` INT NOT NULL,
+        PRIMARY KEY (`id`)
+    );
+
+INSERT INTO `students` (`name`, `marks`) VALUES ('Ashley', '81');
+
+INSERT INTO `students` (`name`, `marks`) VALUES ('Samantha', '75');
+
+INSERT INTO `students` (`name`, `marks`) VALUES ('Julia', '76');
+
+INSERT INTO `students` (`name`, `marks`) VALUES ('Belvet', '84');
+
+# Order by last three characters and id
+
+SELECT name
+FROM students
+WHERE marks > 75
+ORDER BY
+    RIGHT(name, 3),
+    id ASC;
