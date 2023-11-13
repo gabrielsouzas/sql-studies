@@ -105,3 +105,81 @@ SELECT
         ELSE 'Scalene'
     END
 FROM TRIANGLES;
+
+# New TABLE
+
+CREATE TABLE
+    `occupation` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(90) NOT NULL,
+        `occupation` VARCHAR(90) NOT NULL,
+        PRIMARY KEY (`id`)
+    );
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Samantha', 'Doctor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Julia', 'Actor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Maria', 'Actor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Meera', 'Singer');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Ashley', 'Professor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Kety', 'Professor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Christeen', 'Professor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Jane', 'Actor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Jenny', 'Doctor');
+
+INSERT INTO
+    `occupation` (`name`, `occupation`)
+VALUES ('Priya', 'Singer');
+
+# Alphabetically ordered list of all names in OCCUPATION
+
+SELECT
+    CONCAT(
+        name,
+        '(',
+        LEFT(occupation, 1),
+        ')'
+    ) AS result
+FROM occupations
+ORDER BY name ASC;
+
+# Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order:
+
+SELECT
+    CONCAT(
+        'There are a total of ',
+        COUNT(occupation),
+        ' ',
+        LOWER(occupation),
+        's.'
+    ) AS result
+FROM occupation
+GROUP BY occupation
+ORDER BY
+    COUNT(occupation) ASC,
+    occupation ASC;
