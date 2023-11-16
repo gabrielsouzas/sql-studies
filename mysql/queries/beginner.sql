@@ -183,3 +183,29 @@ GROUP BY occupation
 ORDER BY
     COUNT(occupation) ASC,
     occupation ASC;
+
+# ----
+
+SELECT
+    hackers.hacker_id AS id,
+    hackers.name AS name, (
+        SELECT
+            COUNT(challenges.challenge_id)
+        FROM challenges
+        WHERE
+            hackers.hacker_id = challenges.hacker_id
+    ) AS challenges_count
+FROM hackers
+ORDER BY
+    challenges_count DESC,
+    id
+
+# Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to  decimal places.
+
+SELECT ROUND(LONG_W, 4)
+FROM STATION
+WHERE LAT_N = (
+        SELECT MIN(LAT_N)
+        FROM STATION
+        WHERE LAT_N > 38.7780
+    );
