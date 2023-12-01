@@ -200,7 +200,7 @@ ORDER BY
     challenges_count DESC,
     id
 
-# Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to  decimal places.
+# Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to 4 decimal places.
 
 SELECT ROUND(LONG_W, 4)
 FROM STATION
@@ -209,3 +209,33 @@ WHERE LAT_N = (
         FROM STATION
         WHERE LAT_N > 38.7780
     );
+
+# Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.2345. Round your answer to 4  decimal places.
+
+SELECT ROUND(LONG_W, 4)
+FROM STATION
+WHERE LAT_N = (
+        SELECT MAX(LAT_N)
+        FROM STATION
+        WHERE LAT_N < 137.2345
+    );
+
+# Consider POINT_ONE(A,B) and POINT_TWO(C,D) to be two points on a 2D plane.
+
+# A is the minimum value in LAT_N;
+
+# B is the minimum value in LONG_W;
+
+# C is the maximum value in LAT_N;
+
+# D is the maximum value in LONG_W;
+
+# Query the Manhattan Distance between points  and  and round it to a scale of 4 decimal places.
+
+SELECT
+    ROUND(
+        ABS( (MAX(LAT_N) - MIN(LAT_N)) + (MAX(LONG_W) - MIN(LONG_W))
+        ),
+        4
+    )
+FROM STATION
