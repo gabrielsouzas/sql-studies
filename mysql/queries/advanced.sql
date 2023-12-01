@@ -48,3 +48,28 @@ SELECT
     END
 FROM bst
 ORDER BY n;
+
+# Query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as  space-separated integers
+
+CREATE TABLE
+    employee (
+        employee_id INT NOT NULL AUTO INCREMENT,
+        name VARCHAR(60),
+        months INT,
+        salary INT,
+        PRIMARY KEY (employee_id)
+    );
+
+SELECT
+    MAX(months * salary),
+    COUNT(
+        CASE
+            WHEN (months * salary) = (
+                SELECT MAX(months * salary)
+                FROM
+                    employee
+            ) THEN 1
+            ELSE NULL
+        END
+    ) AS contagem_maximo
+FROM employee;
