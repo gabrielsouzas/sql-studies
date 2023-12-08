@@ -17,13 +17,13 @@ CREATE TABLE usuarios (
 
 Neste exemplo:
 
-    * id é uma coluna do tipo INT que serve como identificador único para cada usuário. O AUTO_INCREMENT indica que o valor será gerado automaticamente e a PRIMARY KEY define essa coluna como a chave primária da tabela;
+- id é uma coluna do tipo INT que serve como identificador único para cada usuário. O AUTO_INCREMENT indica que o valor será gerado automaticamente e a PRIMARY KEY define essa coluna como a chave primária da tabela;
 
-    * nome é uma coluna do tipo VARCHAR que armazenará os nomes dos usuários com no máximo 50 caracteres;
+- nome é uma coluna do tipo VARCHAR que armazenará os nomes dos usuários com no máximo 50 caracteres;
 
-    * idade é uma coluna do tipo INT para armazenar a idade dos usuários;
+- idade é uma coluna do tipo INT para armazenar a idade dos usuários;
 
-    * email é uma coluna do tipo VARCHAR que guardará os endereços de email dos usuários com no máximo 100 caracteres.
+- email é uma coluna do tipo VARCHAR que guardará os endereços de email dos usuários com no máximo 100 caracteres.
 
 ### SELECT (seleção de dados):
 
