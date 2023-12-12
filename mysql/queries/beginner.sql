@@ -239,3 +239,11 @@ SELECT
         4
     )
 FROM STATION
+
+# Sum population from city where continent = Asia
+
+SELECT SUM(city.population)
+FROM CITY
+    INNER JOIN country ON country.code = city.countrycode
+WHERE
+    country.continent = 'Asia';
