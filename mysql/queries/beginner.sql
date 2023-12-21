@@ -16,14 +16,12 @@ SELECT DISTINCT CITY
 FROM STATION
 WHERE
     FIND_IN_SET(LEFT(CITY, 1), "a,e,i,o,u")
-
 # Last letter
 
 SELECT DISTINCT CITY
 FROM STATION
 WHERE
     FIND_IN_SET(RIGHT(CITY, 1), "a,e,i,o,u")
-
 # Both sides
 
 SELECT DISTINCT CITY
@@ -31,14 +29,12 @@ FROM STATION
 WHERE
     FIND_IN_SET(RIGHT(CITY, 1), "a,e,i,o,u")
     AND FIND_IN_SET(LEFT(CITY, 1), "a,e,i,o,u")
-
 # Not a vowel in the first letter
 
 SELECT DISTINCT CITY
 FROM STATION
 WHERE
     NOT FIND_IN_SET(LEFT(CITY, 1), "a,e,i,o,u")
-
 # Not a vowel in the first or last letter
 
 SELECT DISTINCT CITY
@@ -199,7 +195,6 @@ FROM hackers
 ORDER BY
     challenges_count DESC,
     id
-
 # Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to 4 decimal places.
 
 SELECT ROUND(LONG_W, 4)
@@ -239,8 +234,16 @@ SELECT
         4
     )
 FROM STATION
-
 # Sum population from city where continent = Asia
+
+CREATE TABLE
+    CITY (
+        ID INT NOT NULL AUTO_INCREMENT,
+        POPULATION NUMBER,
+        COUNTRYCODE INT,
+        PRIMARY KEY(ID)
+
+)
 
 SELECT SUM(city.population)
 FROM CITY
